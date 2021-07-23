@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игра угадай число!</title>
+</head>
+
+<body>
+    <style>
+        #block {
+            width: 50%;
+            margin: 0 auto;
+            border: 2px solid grey;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+
+
+    <div id="block">
+        <h2>Игра. Угадай число!</h2>
+        <input value="" placeholder="Введите число">
+        <div id="out-1"></div>
+    </div>
+
+    <script>
+        'use strict';
+        let numberGame = Math.floor(Math.random() * 100);
+        let out = document.querySelector('#out-1');
+        console.log(numberGame)
+
+       
+
+        let input = document.querySelector('input');
+        input.value = null;
+        input.addEventListener('blur', function () {
+            if (numberGame == +input.value) {
+                out.innerHTML = 'Вы угадали!';
+                alert('Вы угадали!');
+            }
+            else if (numberGame > +input.value) {
+                out.innerHTML = 'Введите число побольше!'
+            }
+            else if (numberGame < +input.value) {
+                out.innerHTML = 'Введите число поменьше!'
+            }
+        })
+    </script>
+</body>
+
+</html>
